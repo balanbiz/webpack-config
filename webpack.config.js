@@ -20,7 +20,7 @@ module.exports = {
 				use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader", "sass-loader"]
 			},
 			{
-			test: /\.js$/,
+			test: /\.[tj]sx?$/,
 			exclude: /node_modules/,
 			use: {
 				loader: 'babel-loader',
@@ -30,7 +30,9 @@ module.exports = {
 
 	plugins: [new MiniCssExtractPlugin()],
 
-
+	resolve: {
+		extensions: [".js", ".jsx", ".tsx"],
+	},
 	devtool: "source-map",
 	devServer: {
 		contentBase: "./dist",
